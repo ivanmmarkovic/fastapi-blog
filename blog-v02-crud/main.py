@@ -46,7 +46,7 @@ def get_article(id: int, response: Response, db: Session = Depends(get_db)):
     return article
 
 @app.put('/articles/{id}')
-def delete_article(id: int, article: Article, db: Session = Depends(get_db)):
+def update_article(id: int, article: Article, db: Session = Depends(get_db)):
     articles = db.query(ArticleModel).filter(ArticleModel.id == id)
     if not articles.first():
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, 
