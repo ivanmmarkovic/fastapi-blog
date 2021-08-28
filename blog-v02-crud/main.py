@@ -55,7 +55,7 @@ def delete_article(id: int, article: Article, db: Session = Depends(get_db)):
     db.commit()
     return article
 
-@app.delete('/blogs/{id}', status_code=status.HTTP_204_NO_CONTENT)
+@app.delete('/articles/{id}', status_code=status.HTTP_204_NO_CONTENT)
 def delete_article(id: int, db: Session = Depends(get_db)):
     articles = db.query(ArticleModel).filter(ArticleModel.id == id)
     if not articles.first():
